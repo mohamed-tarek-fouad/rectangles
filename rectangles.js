@@ -12,7 +12,9 @@ function generateRectanglePositions(areas) {
   function generatePositions(rectanglesLeft, currentPosition) {
     if (rectanglesLeft <= 1) {
       // We have reached the end of the list, so add the current position to the results.
-      positions.push(currentPosition);
+      if (sumOfWidths(currentPosition) === sumOfHeights(currentPosition)) {
+        positions.push(currentPosition);
+      }
     } else {
       // For each possible width of the next rectangle...
       for (let width = 1; width <= areas[rectanglesLeft - 1]; width++) {
@@ -32,6 +34,24 @@ function generateRectanglePositions(areas) {
 
   generatePositions(6, currentPosition);
   return positions;
+}
+
+function sumOfWidths(rectangles) {
+  let sum = 0;
+  for (let i = 0; i < rectangles.length; i++) {
+    sum += rectangles[i].width;
+  }
+
+  return sum;
+}
+
+function sumOfHeights(rectangles) {
+  let sum = 0;
+  for (let i = 0; i < rectangles.length; i++) {
+    sum += rectangles[i].height;
+  }
+
+  return sum;
 }
 const areas = [1, 2, 3, 4, 5, 6];
 
