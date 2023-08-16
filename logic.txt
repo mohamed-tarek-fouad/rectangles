@@ -1,0 +1,15 @@
+The logic behind the solution is that it is possible to divide the area of the 6 rectangles into 720
+different combinations of widths and heights.
+Each combination represents a possible position for the 6 rectangles
+let's assume we have these areas as input [1, 2, 3, 4, 5, 6]
+The first rectangle can have any width from 1 to the area of the first rectangle. For example, if the area of the first rectangle is 4, then the first rectangle can have a width of 1, 2, 3, or 4.
+
+Once we have chosen the width of the first rectangle, we can then choose the width of the second rectangle.
+The width of the second rectangle must be less than or equal to the remaining area.
+For example, if the remaining area is 3, then the second rectangle can have a width of 1, 2, or 3.
+We can continue in this way to choose the widths of all 6 rectangles. At each step, we must choose a width that is less than or equal to the remaining area.
+This means that there are a total of 8 possible combinations of widths and heights for the 6 rectangles.
+
+We can know that these positions will work because they satisfy the following two conditions:
+1-The sum of the widths of the rectangles is equal to the sum of the heights of the rectangles.
+2-No two rectangles overlap.
